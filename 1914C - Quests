@@ -1,0 +1,45 @@
+// HERE I SOLVED IT VERY OPTIMISELY 
+// I JUST LOOPING TO CHECK I WILL BE OPENING TILL WHAT QUEST MIN (N,K) 
+// SO OPEN ALL THE BOX ONE TIME AND THEN REMAINING OPEN ALL THAT WHICH HAVE AX b[i] till there .....
+
+
+#include<bits/stdc++.h>
+using namespace std ; 
+
+
+void solve ()
+{ 
+ int n , k ; 
+ cin>>n>>k ; 
+
+ vector<int>a(n) ; 
+ vector<int>b(n) ; 
+ for (int i = 0 ; i < n ; i++) cin >>a[i] ; 
+ for (int i = 0 ; i < n ; i++) cin >>b[i] ; 
+
+ long long ans = 0 ; 
+
+ long long  exp_first = 0 ; 
+ int max_b = b[0] ; 
+ int count = 0 ; 
+for (int i  = 0  ; i < min(n,k)  ; i++)
+{   
+   exp_first+=a[i]*1LL ; 
+   count++ ; 
+   max_b = max(max_b , b[i]) ; 
+
+   ans = max(ans , (exp_first + (k-count)*max_b)*1LL) ; 
+
+
+}
+cout<<ans<<endl ; 
+return   ; 
+
+}
+int main ()
+{
+     int t   ; 
+     cin>>t ; 
+     while (t--)
+     {solve() ; }
+}
